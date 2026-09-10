@@ -1,0 +1,60 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime / Dependencies
+node_modules
+dist
+dist-ssr
+
+# Environment & Local Overrides
+*.local
+.env
+.env.*
+!.env.example
+src/local-pets/
+
+# Rust / Cargo
+target/
+**/target/
+src-tauri/target/
+**/*.rs.bk
+# 注：.cargo/ 配置按需求显式纳入版本管理，不予忽略
+
+# Tauri specific
+src-tauri/gen/schemas
+gen/schemas/
+
+# Temporary / Review files
+CODE_REVIEW.md
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.sublime-workspace
+*.sublime-project
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Test & Coverage
+coverage/
+.nyc_output/

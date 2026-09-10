@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "DailyTodos",
+  "version": "1.0.0-beta.1",
+  "identifier": "com.dailytodos.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "macOSPrivateApi": true,
+    "windows": [
+      {
+        "label": "widget",
+        "title": "Daily Todos Widget",
+        "width": 350,
+        "height": 500,
+        "resizable": true,
+        "maximizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": false,
+        "shadow": false,
+        "skipTaskbar": true,
+        "visible": true,
+        "url": "index.html#/widget"
+      },
+      {
+        "label": "main",
+        "title": "Daily Todos · 任务与习惯看板",
+        "width": 960,
+        "height": 680,
+        "minWidth": 800,
+        "minHeight": 600,
+        "resizable": true,
+        "decorations": true,
+        "transparent": false,
+        "visible": false,
+        "url": "index.html#/main"
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: asset: https://asset.localhost; font-src 'self' data:; connect-src 'self' ipc: http://ipc.localhost"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "publisher": "DailyTodos",
+    "windows": {
+      "wix": {
+        "version": "1.0.0.1"
+      }
+    },
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}

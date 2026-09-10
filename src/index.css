@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent !important;
+}
+
+/* Custom scrollbar for glassmorphic containers */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.45);
+}
+
+/* Drag region for Tauri windows */
+.drag-region {
+  -webkit-app-region: drag;
+  cursor: grab;
+}
+
+.drag-region:active {
+  cursor: grabbing;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Glass panel utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.dark .glass-panel {
+  background: rgba(26, 28, 35, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Pet animations */
+.animate-pet-float {
+  animation: petFloat 3s ease-in-out infinite;
+}
+
+.animate-pet-breathe {
+  animation: petBreathe 2s ease-in-out infinite;
+}
+
+.animate-pet-walk {
+  animation: petWalk 0.6s ease-in-out infinite alternate;
+}
+
+.animate-pet-shake {
+  animation: petShake 0.4s ease-in-out;
+}
+
+.animate-bounce-high {
+  animation: petBounceHigh 0.7s ease-in-out infinite;
+}
+
+.animate-tail-wag {
+  animation: tailWag 0.5s ease-in-out infinite alternate;
+}
+
+.animate-jelly-squash {
+  animation: jellySquash 1.2s ease-in-out infinite;
+}
+
+@keyframes petFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes petBreathe {
+  0%, 100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.02, 0.97);
+  }
+}
+
+@keyframes petWalk {
+  0% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(-2px) rotate(2deg);
+  }
+}
+
+@keyframes petShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px) rotate(-3deg); }
+  75% { transform: translateX(4px) rotate(3deg); }
+}
+
+@keyframes petBounceHigh {
+  0%, 100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  40% {
+    transform: translateY(-16px) scale(0.95, 1.05);
+  }
+  60% {
+    transform: translateY(-12px) scale(1.02, 0.98);
+  }
+}
+
+@keyframes tailWag {
+  0% {
+    transform: rotate(-12deg);
+  }
+  100% {
+    transform: rotate(18deg);
+  }
+}
+
+@keyframes jellySquash {
+  0%, 100% {
+    transform: scale(1, 1);
+  }
+  40% {
+    transform: scale(1.06, 0.94);
+  }
+  70% {
+    transform: scale(0.96, 1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pet-widget-shell .animate-pet-float,
+  .pet-widget-shell .animate-pet-breathe,
+  .pet-widget-shell .animate-pet-walk,
+  .pet-widget-shell .animate-pet-shake,
+  .pet-widget-shell .animate-bounce-high,
+  .pet-widget-shell .animate-tail-wag,
+  .pet-widget-shell .animate-jelly-squash,
+  .pet-widget-shell .animate-bounce,
+  .pet-widget-shell .animate-pulse,
+  .pet-widget-shell .animate-ping {
+    animation: none !important;
+  }
+
+  .pet-widget-shell .pet-ui-transition {
+    transition: none !important;
+  }
+}
